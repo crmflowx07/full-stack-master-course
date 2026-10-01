@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Full Stack Master Academy — a complete practical learning path from web foundations to production engineering." />
+<title>Full Stack Master Academy — ULTRA V4</title>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+:root{--bg:#07101c;--panel:#0b1727;--panel2:#101e31;--soft:#14253b;--line:#223653;--text:#edf5ff;--muted:#95a9c3;--brand:#70efbb;--blue:#74b8ff;--warn:#ffc66d;--danger:#ff8393;--shadow:0 18px 55px rgba(0,0,0,.22);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,#17365d 0,transparent 32%),var(--bg);color:var(--text);line-height:1.65}button,input,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.top{position:sticky;top:0;z-index:50;height:72px;display:flex;align-items:center;gap:18px;padding:0 22px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(18px)}.brand{display:flex;align-items:center;gap:11px;min-width:260px}.brand-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--blue));color:#062016;font-weight:900}.brand b{display:block;font-size:13px;letter-spacing:.08em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.11em}.search{position:relative;flex:1;max-width:760px}.search input{width:100%;height:43px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);padding:0 14px 0 40px;outline:0}.search span{position:absolute;left:14px;top:10px;color:var(--muted)}.top-actions{margin-left:auto;display:flex;align-items:center;gap:10px}.themes{display:flex;padding:4px;border:1px solid var(--line);background:var(--panel);border-radius:12px}.themes button{width:33px;height:30px;border:0;border-radius:8px;background:transparent;color:var(--muted)}.themes button.active{background:var(--soft);color:var(--text)}.mastery{font-size:11px;color:var(--muted)}.mastery b{color:var(--brand)}.shell{display:grid;grid-template-columns:310px minmax(0,1fr)}.side{position:sticky;top:72px;height:calc(100vh - 72px);overflow:auto;border-right:1px solid var(--line);background:var(--panel);padding:14px}.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:14px}.stats div{padding:11px 6px;text-align:center;border-right:1px solid var(--line)}.stats div:last-child{border:0}.stats b{display:block;font-size:16px}.stats span{font-size:8px;color:var(--muted);text-transform:uppercase}.phase{width:100%;text-align:left;border:0;background:transparent;color:var(--muted);padding:11px;border-radius:12px;margin:3px 0;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center}.phase:hover,.phase.active{background:var(--soft);color:var(--text)}.phase i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--panel2);font-style:normal;color:var(--brand);font-weight:800}.phase small{display:block;font-size:8px;color:var(--muted);text-transform:uppercase}.phase strong{font-size:11px}.phase em{font-style:normal;font-size:9px;color:var(--muted)}.main{min-width:0}.hero{padding:42px clamp(22px,5vw,72px) 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 60%,transparent),transparent)}.crumb{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.eyebrow{display:flex;gap:8px;margin-top:20px}.pill{padding:5px 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--brand) 28%,var(--line));background:color-mix(in srgb,var(--brand) 10%,transparent);color:var(--brand);font-size:9px;font-weight:800}.hero h1{font-size:clamp(2.5rem,6vw,5.4rem);line-height:.98;letter-spacing:-.055em;margin:15px 0}.hero p{max-width:950px;color:var(--muted);font-size:15px}.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:10px}.btn.primary{background:var(--brand);color:#062016;border-color:var(--brand);font-weight:800}.metrics{display:grid;grid-template-columns:repeat(5,1fr);max-width:880px;margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}.metrics div{padding:12px 15px;border-right:1px solid var(--line)}.metrics div:last-child{border:0}.metrics b{display:block}.metrics span{font-size:8px;color:var(--muted);text-transform:uppercase}.tabs{position:sticky;top:72px;z-index:30;display:flex;overflow:auto;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);padding:0 clamp(18px,5vw,72px)}.tabs button{border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);padding:15px 16px;font-size:10px;text-transform:uppercase;font-weight:800;white-space:nowrap}.tabs button.active{color:var(--text);border-bottom-color:var(--brand)}.content{display:grid;grid-template-columns:minmax(0,920px) 290px;gap:34px;padding:44px clamp(22px,5vw,72px) 80px;align-items:start}.section{margin-bottom:42px}.tag{font-size:9px;color:var(--brand);font-weight:900;letter-spacing:.14em;text-transform:uppercase}.section h2{font-size:clamp(1.5rem,2.5vw,2.15rem);line-height:1.15;letter-spacing:-.03em;margin:10px 0 14px}.section p,.section li{color:var(--muted);font-size:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}.check{list-style:none;padding:0;margin:0;display:grid;gap:9px}.check li{padding-left:25px;position:relative}.check li:before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:900}.concepts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.concept{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}.concept b{display:block;margin-bottom:5px}.concept p{margin:0;font-size:12px}.code{background:#050b13;border:1px solid #263b59;border-radius:14px;overflow:hidden;margin:16px 0}.codehead{display:flex;justify-content:space-between;align-items:center;padding:10px 13px;background:#0e1a2a;border-bottom:1px solid #233650;color:#91a8c4;font-size:10px}.codehead button{border:1px solid #29415f;background:#13243a;color:#b8cae0;border-radius:7px;padding:5px 8px}.code pre{margin:0;padding:20px;overflow:auto;color:#dbeaff;font:12px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace}.code p{margin:0;padding:12px 17px;border-top:1px solid #1e314b;background:#09131f;color:#91a7c0;font-size:11px}.rail{position:sticky;top:135px;display:grid;gap:14px}.rail .panel h3{margin:8px 0;font-size:16px}.rail label{display:flex;gap:8px;align-items:flex-start;font-size:11px;color:var(--muted);margin:10px 0}.single{max-width:1050px;margin:auto;padding:44px clamp(22px,5vw,72px) 80px}.banner{background:linear-gradient(135deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:27px;margin-bottom:34px}.banner span{color:var(--brand);font-size:9px;font-weight:900;letter-spacing:.14em}.banner h2{font-size:clamp(2rem,4vw,3.8rem);line-height:1;margin:10px 0}.banner p{color:var(--muted)}.steps{display:grid;gap:10px;counter-reset:s}.steps div{counter-increment:s;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:14px 16px;color:var(--muted)}.steps div:before{content:counter(s,decimal-leading-zero);color:var(--brand);font-weight:900;margin-right:14px}.quiz{display:grid;gap:16px}.q{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:18px}.q h3{margin-top:0}.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opts button{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:10px;padding:10px;text-align:left}.opts button.correct{border-color:#3e8a69;color:var(--brand)}.opts button.wrong{border-color:#925060;color:var(--danger)}.feedback{font-size:12px;margin-top:10px}.notes{width:100%;min-height:520px;padding:20px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:15px;outline:0;resize:vertical}.search-results{position:absolute;top:48px;left:0;right:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:var(--shadow);max-height:430px;overflow:auto;z-index:90}.search-results button{width:100%;text-align:left;border:0;background:transparent;color:var(--text);padding:10px;border-radius:9px}.search-results button:hover{background:var(--soft)}.search-results small{display:block;color:var(--muted)}.footer{padding:36px clamp(22px,5vw,72px);border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+:root[data-theme="light"]{--bg:#f5f8fc;--panel:#fff;--panel2:#f7faff;--soft:#eaf1f8;--line:#d7e2ee;--text:#172338;--muted:#58708b;--brand:#087f5b;--blue:#286fc0;--warn:#9b6300;--danger:#c53d52;--shadow:0 18px 45px rgba(35,62,95,.1);color-scheme:light}
+:root[data-theme="light"] body{background:radial-gradient(circle at 80% -10%,#ddecff 0,transparent 32%),var(--bg)}
+:root[data-theme="light"] .code{background:#07111f}.code pre{color:#e5f0fb}.code p{color:#9fb0c6}
+@media(max-width:1120px){.content{grid-template-columns:1fr}.rail{position:static;grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(3,1fr)}}@media(max-width:880px){.shell{grid-template-columns:1fr}.side{display:none}.brand{min-width:auto}.brand div{display:none}.mastery{display:none}.content{padding-inline:20px}.hero{padding-inline:20px}.tabs{padding-inline:8px}.twocol,.concepts{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.rail{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}@media(max-width:560px){.top{padding:0 10px;gap:9px}.themes{display:none}.hero h1{font-size:2.55rem}.metrics{grid-template-columns:1fr 1fr}.single{padding-inline:18px}}
+</style>
+</head>
+<body><div id="root"></div>
+<script type="text/babel">
+const {useEffect,useMemo,useState}=React;
+const STORAGE="fs-academy-v4";
+const CODE={
+web:`Browser → DNS → TCP/TLS → CDN/Web Server → App Server → Database/API
+                                  ↑
+                            JSON / HTML response`,
+html:`<form>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" autocomplete="email" required>
+  <button type="submit">Create account</button>
+</form>`,
+css:`.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));
+  gap:1rem;
+}
+.title{font-size:clamp(2rem,5vw,4.5rem)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}`,
+js:`const users = await fetch("/api/users").then(async (r) => {
+  if (!r.ok) throw new Error(\`HTTP \${r.status}\`);
+  return r.json();
+});
+const activeNames = users.filter(u => u.active).map(u => u.name);`,
+git:`git switch -c feature/auth-form
+git add src
+git commit -m "feat(auth): add validated login form"
+git fetch origin
+git rebase origin/main
+git push -u origin feature/auth-form`,
+ts:`type ApiResult<T> =
+  | { ok: true; data: T }
+  | { ok: false; error: { code: string; message: string } };
+
+function first<T>(items:T[]):T|undefined{
+  return items[0];
+}`,
+react:`function TaskForm(){
+  const [title,setTitle]=React.useState("");
+  const [saving,setSaving]=React.useState(false);
+  async function submit(e){
+    e.preventDefault();
+    setSaving(true);
+    try{
+      const r=await fetch("/api/tasks",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({title})
+      });
+      if(!r.ok) throw new Error("Save failed");
+      setTitle("");
+    } finally { setSaving(false); }
+  }
+  return <form onSubmit={submit}>
+    <input value={title} onChange={e=>setTitle(e.target.value)} />
+    <button disabled={saving}>{saving?"Saving…":"Add task"}</button>
+  </form>
+}`,
+node:`import http from "node:http";
+const server=http.createServer((req,res)=>{
+  res.writeHead(200,{"Content-Type":"application/json"});
+  res.end(JSON.stringify({ok:true}));
+});
+server.listen(process.env.PORT ?? 3000);`,
+express:`router.post("/tasks", validate(createTaskSchema), requireUser, async (req,res,next)=>{
+  try{
+    const task=await taskService.create(req.body,req.user.id);
+    res.status(201).json({data:task});
+  }catch(error){ next(error); }
+});`,
+sql:`BEGIN;
+UPDATE inventory SET quantity=quantity-1
+WHERE product_id=$1 AND quantity>0;
+INSERT INTO orders(user_id,total) VALUES($2,$3);
+COMMIT;
+
+SELECT p.id,p.name,COUNT(t.id) AS task_count
+FROM projects p
+LEFT JOIN tasks t ON t.project_id=p.id
+WHERE p.owner_id=$1
+GROUP BY p.id,p.name
+ORDER BY task_count DESC;`,
+mongo:`const taskSchema = new Schema({
+  title:{type:String,required:true,trim:true},
+  owner:{type:Schema.Types.ObjectId,ref:"User",index:true},
+  status:{type:String,enum:["todo","doing","done"],default:"todo"}
+},{timestamps:true});`,
+auth:`const passwordHash = await argon2.hash(password);
+const valid = await argon2.verify(user.passwordHash, password);
+if(!valid) throw new UnauthorizedError();
+
+res.cookie("session", sessionId, {
+  httpOnly:true, secure:true, sameSite:"lax"
+});`,
+test:`it("rejects task creation without a title", async () => {
+  const response = await request(app)
+    .post("/api/tasks")
+    .set("Cookie", validSession)
+    .send({});
+  expect(response.status).toBe(400);
+  expect(response.body.error.code).toBe("VALIDATION_ERROR");
+});`,
+next:`export default async function ProductPage({params}){
+  const product=await getProduct(params.id);
+  if(!product) notFound();
+  return <ProductDetails product={product}/>;
+}`,
+realtime:`io.on("connection",(socket)=>{
+  socket.on("project:join",(projectId)=>socket.join(projectId));
+  socket.on("task:update",async(payload)=>{
+    const saved=await updateTask(payload);
+    io.to(payload.projectId).emit("task:updated",saved);
+  });
+});`,
+docker:`FROM node:20-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html`,
+cicd:`name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: npm test
+      - run: npm run build`,
+observability:`logger.info({
+  event:"order_created",
+  orderId:order.id,
+  userId:req.user.id,
+  requestId:req.id,
+  durationMs:Date.now()-startedAt
+});`,
+system:`Client
+  ↓ CDN
+Load Balancer
+  ↓
+App instances ── Redis cache
+  ↓
+Primary DB ── Read replicas
+  ↓
+Queue → Workers → Email / Image / Webhook services`,
+dsa:`function binarySearch(nums,target){
+  let left=0,right=nums.length-1;
+  while(left<=right){
+    const mid=Math.floor((left+right)/2);
+    if(nums[mid]===target) return mid;
+    if(nums[mid]<target) left=mid+1;
+    else right=mid-1;
+  }
+  return -1;
+}`
+};
+const phases=[
+["01","Web Foundations","web","Understand browser, network, HTTP, DNS, TLS, APIs and developer tooling before frameworks.",
+["Client/server model","DNS & IP resolution","HTTP methods & status codes","HTTPS/TLS","Headers/cookies/cache","Browser rendering pipeline","DevTools Network/Performance","Node/npm/terminal"],
+["Every website request","API debugging","CORS diagnosis","Performance investigation","Deployment troubleshooting"],
+["Trace a request from URL to database and back","Explain 401 vs 403, 404 vs 500","Inspect requests in DevTools","Build loading/error/success UI"],
+"Create a network-inspection report for a real site, then build a small fetch-based dashboard."],
+["02","HTML & Accessibility","html","Build semantic, accessible documents and forms that work with keyboards, assistive technology and search engines.",
+["Document structure","Semantic landmarks","Heading hierarchy","Forms & validation","Labels & accessible names","Images & alt text","Dialog/details","ARIA rules","SEO metadata"],
+["Forms","Navigation","Articles","Dashboards","Checkout","Accessible interactive UI"],
+["Use native elements before ARIA","Create labeled validated forms","Audit keyboard navigation","Explain button vs link semantics"],
+"Build a multi-page business site with fully accessible forms and keyboard navigation."],
+["03","Modern CSS","css","Master the cascade, responsive layout and maintainable styling instead of depending on frameworks for fundamentals.",
+["Cascade & specificity","Box model","Flexbox","Grid","Container/media queries","Custom properties","Fluid typography","Animations","Reduced motion","Architecture"],
+["Responsive apps","Dashboards","Design systems","Marketing sites","Component styling"],
+["Build without fixed desktop assumptions","Use Grid/Flex intentionally","Create tokens","QA 320px→1440px"],
+"Rebuild a professional dashboard responsively with light/dark themes and no layout overlap."],
+["04","JavaScript Mastery","js","Learn the language deeply: data, functions, closures, objects, async programming, browser APIs and application architecture.",
+["Types & coercion","Functions & closures","Arrays/objects","Modules","DOM/events","Promises","async/await","Fetch","Error handling","Storage","Performance"],
+["Frontend logic","API clients","Node backends","Automation","Browser tooling"],
+["Explain scope/closure","Handle async failures","Transform collections","Write modular code","Debug with breakpoints"],
+"Build a vanilla JS CRUD app with routing-like views, persistent storage and API integration."],
+["05","Git & GitHub","git","Use distributed version control professionally: clean history, branches, pull requests, reviews, conflict resolution and release workflows.",
+["Working tree/index/history","Commits","Branches","Merge/rebase","Remote tracking","Pull requests","Code review","Tags/releases","Revert/reset/reflog","GitHub Actions intro"],
+["Team collaboration","Safe experimentation","Release history","Code review","CI triggers"],
+["Create atomic commits","Recover lost work","Resolve conflicts","Use feature branches","Write meaningful PR descriptions"],
+"Manage a full project through issues → branch → commits → PR → review → merge → release."],
+["06","TypeScript","ts","Add a compile-time type system to JavaScript to model domain data and catch invalid states earlier.",
+["Primitive/object types","Unions","Intersections","Narrowing","Generics","Utility types","Type guards","Interfaces","strict mode","API types"],
+["React apps","Node services","Shared contracts","SDKs","Large codebases"],
+["Avoid any","Model success/error states","Write generics","Narrow unknown safely","Type API payloads"],
+"Convert a JavaScript CRUD project to strict TypeScript without unsafe any."],
+["07","React","react","Build component-driven application UIs with predictable state, effects, forms, routing, data fetching and performance practices.",
+["Components/JSX","Props/state","Events","Controlled forms","Lists/keys","Hooks","Effects","Refs","Context","Routing","Server state","Error/loading states","Memoization"],
+["SaaS","Admin panels","E-commerce","Dashboards","Interactive forms"],
+["Explain render cycle","Avoid unnecessary effects","Model URL state","Handle async UI states","Build reusable components"],
+"Build a production-style project-management SPA with filters, forms, optimistic UI and persistent preferences."],
+["08","Node.js","node","Run JavaScript on the server and understand event-driven I/O, modules, processes, files, streams and service architecture.",
+["Event loop model","Modules","Environment variables","Filesystem","Streams","Processes","Config","Service layer","Errors","Logging"],
+["APIs","CLI tools","Workers","WebSocket servers","SSR"],
+["Separate business logic from transport","Validate config","Avoid blocking CPU work","Handle process lifecycle"],
+"Build a CLI + reusable service layer that later powers an HTTP API."],
+["09","Express & REST APIs","express","Design maintainable HTTP APIs with routing, middleware, validation, safe errors, pagination and consistent contracts.",
+["Routers","Middleware","Validation","Controllers/services","REST resources","Status codes","Pagination","Filtering","Error middleware","Rate limiting","API docs"],
+["CRUD services","Auth endpoints","Admin APIs","Webhooks","Mobile backends"],
+["Return consistent errors","Validate before DB work","Use correct status codes","Separate HTTP from domain logic"],
+"Build users/projects/tasks/comments REST API with pagination, filters, validation and API documentation."],
+["10","SQL & PostgreSQL","sql","Model relational data, query it efficiently and preserve correctness with constraints, indexes and transactions.",
+["Tables/rows","Primary & foreign keys","Constraints","SELECT/INSERT/UPDATE/DELETE","JOINs","GROUP BY","Indexes","Transactions","Isolation","Migrations","Explain plans"],
+["Orders","Payments","Inventory","Users/roles","Analytics","Business systems"],
+["Normalize intentionally","Use transactions for multi-step writes","Index measured queries","Prevent N+1 patterns","Read EXPLAIN"],
+"Design and implement a transactional commerce database with migrations and reporting queries."],
+["11","MongoDB","mongo","Use document storage when aggregate-shaped data and flexible schemas fit the domain, while still enforcing application rules and indexes.",
+["Documents","Collections","ObjectId","Embedding vs references","Indexes","Aggregation","Schema validation","Mongoose","Pagination","Transactions"],
+["Content","Event data","Catalog metadata","Rapidly evolving document models","Activity feeds"],
+["Choose embed/reference deliberately","Index common filters","Avoid unbounded documents","Validate schemas"],
+"Build a content or task API using MongoDB with indexes and aggregation reports."],
+["12","Authentication & Security","auth","Secure identity and authorization with safe password storage, sessions/tokens, RBAC and protection against common web attacks.",
+["Password hashing","Sessions","JWT tradeoffs","Cookies","CSRF","XSS","CORS","RBAC","Input validation","Rate limits","Secrets","Security headers"],
+["Login","Admin roles","Private APIs","Multi-tenant apps","Account recovery"],
+["Hash passwords","Use HttpOnly cookies where appropriate","Authorize every protected resource","Never trust client input","Rotate secrets"],
+"Add secure auth, roles, ownership checks, rate limits and audit logging to the REST API."],
+["13","Testing & QA","test","Prove important behavior with unit, integration and end-to-end tests, plus accessibility and production smoke checks.",
+["Unit tests","Integration tests","API tests","E2E","Mocks/fakes","Test data","Coverage","Accessibility tests","Regression tests","Smoke tests"],
+["Business rules","Auth flows","Checkout","Critical APIs","UI workflows"],
+["Test behavior not implementation details","Cover failure paths","Keep tests deterministic","Use realistic integration boundaries"],
+"Create a test pyramid for your full-stack app and gate merges on critical tests."],
+["14","Next.js","next","Understand React full-stack rendering patterns: server/client boundaries, routing, data loading, caching and production deployment.",
+["App routing","Layouts","Server components","Client components","Data fetching","Caching","Mutations","Metadata","Error/not-found UI","Deployment"],
+["SEO apps","Content sites","Full-stack React apps","Dashboards","Commerce"],
+["Choose server vs client intentionally","Keep secrets server-side","Model cache/revalidation","Handle route errors"],
+"Rebuild one React project in Next.js with server-first data loading and metadata."],
+["15","Realtime, Redis & Queues","realtime","Handle realtime events, caching, presence and background work without blocking request-response paths.",
+["WebSockets","Rooms/channels","Presence","Redis cache","TTL","Pub/Sub","Queues","Retries","Idempotency","Dead-letter strategy"],
+["Chat","Notifications","Live dashboards","Jobs","Email","Image processing"],
+["Design reconnect behavior","Make jobs idempotent","Set cache invalidation rules","Use retries with limits"],
+"Add realtime task updates plus queued email notifications and Redis caching."],
+["16","Docker & Linux","docker","Package applications into repeatable runtime environments and operate them with fundamental Linux/network skills.",
+["Images/containers","Dockerfile","Layers/cache","Volumes","Networks","Compose","Environment variables","Linux processes","Ports","Logs","Permissions"],
+["Local dev","CI","Cloud deployment","Multi-service stacks","Reproducible environments"],
+["Write small deterministic images","Separate build/runtime stages","Use non-secret config","Inspect logs/processes/networks"],
+"Containerize frontend, API, PostgreSQL and Redis with Docker Compose."],
+["17","CI/CD & Deployment","cicd","Automate validation and releases so every change can be tested, built and deployed consistently.",
+["GitHub Actions","CI gates","Build artifacts","Environment secrets","Preview deployments","Nginx","DNS","HTTPS","Rollback","Database migrations"],
+["Team delivery","Production releases","Automated QA","Static hosting","Server deployment"],
+["Fail CI on tests/build","Keep secrets out of repo","Use safe migration order","Design rollback","Verify health checks"],
+"Create a pipeline that tests, builds and deploys your app with documented rollback steps."],
+["18","Observability & Performance","observability","Measure production systems through logs, metrics, traces and frontend/backend profiling instead of guessing.",
+["Structured logs","Request IDs","Metrics","Tracing","Error reporting","Core Web Vitals","Caching","Query profiling","Load testing","Alerting"],
+["Incident response","Performance tuning","Capacity planning","Debugging production errors","SLO monitoring"],
+["Add context to logs","Measure before optimizing","Track latency/error rate","Profile slow queries","Define alerts"],
+"Instrument a full-stack app and produce a performance/incident dashboard with an optimization report."],
+["19","System Design","system","Design scalable systems by reasoning about requirements, data, bottlenecks, consistency, caching, queues and failure modes.",
+["Requirements","Capacity estimates","Load balancing","Caching","Replication","Partitioning","CDN","Queues","Consistency","Rate limiting","Backups","Disaster recovery"],
+["High-traffic SaaS","Commerce","Feeds","File systems","Analytics","Messaging"],
+["State assumptions","Identify bottlenecks","Design failure paths","Explain consistency tradeoffs","Plan recovery"],
+"Design a scalable e-commerce or project-management platform and defend every architecture choice."],
+["20","DSA, Interviews & Career","dsa","Prepare for engineering interviews and professional delivery with data structures, problem solving, portfolio evidence and communication.",
+["Big-O","Arrays/strings","Hash maps","Stacks/queues","Trees","Graphs","Binary search","Recursion","Dynamic programming basics","Behavioral interviews","Portfolio","Resume/GitHub"],
+["Technical interviews","Daily coding","Architecture interviews","Freelance proposals","Job applications"],
+["Explain complexity","Solve before optimizing","Communicate tradeoffs","Show shipped projects","Write strong README files"],
+"Graduate with 3 production-quality capstones, polished GitHub repositories, resume, portfolio and interview practice log."]
+];
+const quizzes={
+web:["DNS resolves a domain to…","An IP address","A CSS selector"],
+html:["For an action, prefer…","A button","A div"],
+css:["Grid is strongest for…","Two-dimensional layout","Database joins"],
+js:["fetch() should check…","response.ok","font-size"],
+git:["A safe feature workflow starts with…","A branch","Deleting main"],
+ts:["Generics help preserve…","Type relationships","Runtime cookies"],
+react:["When next state depends on previous state use…","A functional update","Direct DOM mutation"],
+node:["Secrets belong in…","Environment/secret manager","Frontend bundle"],
+express:["Successful creation commonly returns…","201","404"],
+sql:["Transactions provide…","Atomic multi-step writes","CSS inheritance"],
+mongo:["Indexes mainly improve…","Targeted query performance","HTML semantics"],
+auth:["Passwords should be stored as…","Slow password hashes","Plain text"],
+test:["Integration tests verify…","Components working together","Only colors"],
+next:["Server-only secrets should remain…","On the server","In public JS"],
+realtime:["Idempotent jobs are safe to…","Retry","Randomly duplicate"],
+docker:["A container image should be…","Repeatable","Manually configured each time"],
+cicd:["CI should run…","Tests/build checks","Only screenshots"],
+observability:["Optimize after…","Measurement","Guessing"],
+system:["A design answer should start with…","Requirements/assumptions","A random database"],
+dsa:["Binary search requires…","Ordered search space","CSS Grid"]
+};
+function load(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
+function App(){
+ const [idx,setIdx]=useState(0),[tab,setTab]=useState("learn"),[query,setQuery]=useState("");
+ const [done,setDone]=useState(()=>load(STORAGE+"-done",{})),[book,setBook]=useState(()=>load(STORAGE+"-book",{})),[notes,setNotes]=useState(()=>load(STORAGE+"-notes",{}));
+ const [theme,setTheme]=useState(()=>localStorage.getItem(STORAGE+"-theme")||"system");
+ const [answers,setAnswers]=useState({});
+ const p=phases[idx], key=p[2], q=quizzes[key], progress=Math.round(Object.values(done).filter(Boolean).length/phases.length*100);
+ useEffect(()=>localStorage.setItem(STORAGE+"-done",JSON.stringify(done)),[done]);useEffect(()=>localStorage.setItem(STORAGE+"-book",JSON.stringify(book)),[book]);useEffect(()=>localStorage.setItem(STORAGE+"-notes",JSON.stringify(notes)),[notes]);
+ useEffect(()=>{localStorage.setItem(STORAGE+"-theme",theme);const m=matchMedia("(prefers-color-scheme: light)");const apply=()=>document.documentElement.dataset.theme=theme==="system"?(m.matches?"light":"dark"):theme;apply();m.addEventListener?.("change",apply);return()=>m.removeEventListener?.("change",apply)},[theme]);
+ const results=useMemo(()=>{const s=query.toLowerCase().trim();return s?phases.map((x,i)=>({x,i})).filter(({x})=>x.join(" ").toLowerCase().includes(s)).slice(0,8):[]},[query]);
+ const uses=p[5], concepts=p[4], skills=p[6];
+ const practice=["Read the definition and rewrite it in your own words.","Type the code example manually; do not copy it first.","Change at least three inputs/assumptions and predict the output.","Create one deliberate bug and diagnose it with the correct tool.","Implement a small feature using the concept in a separate Git branch.","Write a README note explaining one tradeoff and one common mistake.","Commit the finished lab with a meaningful Conventional Commit message."];
+ return <div className="app">
+  <header className="top"><div className="brand"><div className="brand-mark">FS</div><div><b>FULL STACK MASTER ACADEMY</b><small>ULTRA V4 • LEARN → BUILD → SHIP</small></div></div>
+  <div className="search"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search React, JWT, SQL, Docker, Git…"/>{query&&<div className="search-results">{results.map(({x,i})=><button key={x[0]} onClick={()=>{setIdx(i);setQuery("");setTab("learn")}}><small>Phase {x[0]}</small><b>{x[1]}</b></button>)}</div>}</div>
+  <div className="top-actions"><div className="themes">{[["light","☀"],["dark","☾"],["system","◐"]].map(([t,icon])=><button className={theme===t?"active":""} onClick={()=>setTheme(t)} title={t}>{icon}</button>)}</div><div className="mastery"><b>{progress}%</b> mastery</div></div></header>
+  <div className="shell"><aside className="side"><div className="stats"><div><b>{phases.length}</b><span>Phases</span></div><div><b>{Object.values(done).filter(Boolean).length}</b><span>Complete</span></div><div><b>3</b><span>Capstones</span></div></div>{phases.map((x,i)=><button className={"phase "+(i===idx?"active":"")} onClick={()=>{setIdx(i);setTab("learn");scrollTo(0,0)}} key={x[0]}><i>{x[0]}</i><div><small>PHASE {x[0]}</small><strong>{x[1]}</strong></div><em>{done[x[2]]?"✓":"○"}</em></button>)}</aside>
+  <main className="main"><section className="hero"><div className="crumb">Phase {p[0]} / Full Stack Master Course</div><div className="eyebrow"><span className="pill">ZERO → PRODUCTION</span><span className="pill">MASTER LESSON</span></div><h1>{p[1]}</h1><p>{p[3]}</p><div className="hero-actions"><button className="btn" onClick={()=>setBook({...book,[key]:!book[key]})}>{book[key]?"★ Bookmarked":"☆ Bookmark"}</button><button className="btn primary" onClick={()=>setDone({...done,[key]:!done[key]})}>{done[key]?"✓ Completed":"Mark complete"}</button></div><div className="metrics"><div><b>{concepts.length}</b><span>Core topics</span></div><div><b>{uses.length}</b><span>Real uses</span></div><div><b>{skills.length}</b><span>Mastery checks</span></div><div><b>7</b><span>Lab steps</span></div><div><b>1</b><span>Phase project</span></div></div></section>
+  <nav className="tabs">{[["learn","Full Lesson"],["practice","Practice Lab"],["quiz","Quiz & Interview"],["project","Phase Project"],["notes","My Notes"]].map(([t,l])=><button className={tab===t?"active":""} onClick={()=>setTab(t)} key={t}>{l}</button>)}</nav>
+  {tab==="learn"&&<div className="content"><div>
+   <section className="section panel"><div className="tag">01 • Definition</div><h2>What is {p[1]}?</h2><p>{p[3]}</p></section>
+   <div className="twocol"><section className="section panel"><div className="tag">02 • Real-world uses</div><h2>Where you use it</h2><ul className="check">{uses.map(x=><li>{x}</li>)}</ul></section><section className="section panel"><div className="tag">03 • Mastery targets</div><h2>What you must be able to do</h2><ul className="check">{skills.map(x=><li>{x}</li>)}</ul></section></div>
+   <section className="section"><div className="tag">04 • Deep concepts</div><h2>Concept map</h2><div className="concepts">{concepts.map((x,i)=><article className="concept"><b>{String(i+1).padStart(2,"0")} — {x}</b><p>Learn the definition, syntax, tradeoffs, failure modes and how this topic connects to the rest of a production full-stack system.</p></article>)}</div></section>
+   <section className="section"><div className="tag">05 • Working code</div><h2>Type it, change it, break it, fix it</h2><CodeBlock title={p[1]+" example"} code={CODE[key]}/></section>
+   <section className="section panel"><div className="tag">06 • Engineering mindset</div><h2>Production checklist</h2><ul className="check"><li>Handle loading, empty, success and failure states.</li><li>Validate input at the correct trust boundary.</li><li>Keep responsibilities separated and names explicit.</li><li>Make behavior observable with errors/logs/tests where appropriate.</li><li>Document setup, assumptions and tradeoffs in README.</li><li>Commit in small reviewable steps instead of one giant commit.</li></ul></section>
+  </div><aside className="rail"><div className="panel"><div className="tag">Phase project</div><h3>{p[7]}</h3><p>This project is your proof of skill. Put it in GitHub with a professional README, screenshots, setup instructions and a short architecture explanation.</p></div><div className="panel"><div className="tag">Lesson checklist</div>{["I can define it without notes","I typed the example","I changed and broke the code","I finished the lab","I can explain one tradeoff","I committed my work"].map(x=><label><input type="checkbox"/>{x}</label>)}</div></aside></div>}
+  {tab==="practice"&&<div className="single"><div className="banner"><span>PRACTICE MODE</span><h2>Stop reading. Start building.</h2><p>Finish the steps in a real repository. Do not mark the phase complete until you can reproduce the important parts without following a tutorial line-by-line.</p></div><section className="section"><div className="tag">Guided lab</div><h2>Seven-step deliberate practice loop</h2><div className="steps">{practice.map(x=><div>{x}</div>)}</div></section><section className="section panel"><div className="tag">Debugging drill</div><h2>Break → Observe → Isolate → Fix → Prevent</h2><p>Introduce one realistic bug. Capture the symptom, identify the failing layer, use the right debugging tool, write the root cause, then add validation/test/logging so the same class of failure is easier to detect next time.</p></section></div>}
+  {tab==="quiz"&&<div className="single"><div className="banner"><span>KNOWLEDGE CHECK</span><h2>Can you explain it without the tutorial?</h2><p>Answer the quiz, then speak through the interview prompts aloud.</p></div><div className="quiz"><div className="q"><h3>{q[0]}</h3><div className="opts">{[q[1],q[2]].map((o,i)=><button className={answers[key]===i?(i===0?"correct":"wrong"):""} onClick={()=>setAnswers({...answers,[key]:i})}>{o}</button>)}</div>{answers[key]!=null&&<div className="feedback">{answers[key]===0?"Correct — now explain why in your own words.":"Not quite — revisit the lesson definition and concept map."}</div>}</div><div className="q"><h3>Interview prompts</h3><ul className="check"><li>Define {p[1]} in 60 seconds.</li><li>Give one real production use case.</li><li>Explain one common failure or misuse.</li><li>Describe one tradeoff or alternative.</li><li>Show how this phase connects to frontend, backend, database or deployment.</li></ul></div></div></div>}
+  {tab==="project"&&<div className="single"><div className="banner"><span>PHASE PROJECT</span><h2>{p[7]}</h2><p>Build evidence, not just notes.</p></div><section className="section panel"><div className="tag">Definition of done</div><h2>Your project must include</h2><ul className="check"><li>Clear feature list and acceptance criteria.</li><li>GitHub repository with meaningful commit history.</li><li>Professional README with setup, architecture and screenshots.</li><li>Responsive/error/security QA appropriate to the phase.</li><li>At least one debugging note describing a bug and root cause.</li><li>A 3–5 minute walkthrough explaining architecture and tradeoffs.</li></ul></section></div>}
+  {tab==="notes"&&<div className="single"><div className="banner"><span>PERSONAL NOTES</span><h2>Turn knowledge into your own words.</h2><p>Saved locally in this browser.</p></div><textarea className="notes" value={notes[key]||""} onChange={e=>setNotes({...notes,[key]:e.target.value})} placeholder={"Definition in my own words…\nImportant syntax…\nMistakes I made…\nQuestions to revisit…\nProject improvements…"}/></div>}
+  <footer className="footer">Full Stack Master Academy ULTRA V4 • 20 phases • Light/Dark/System themes • progress, notes, bookmarks, labs, quizzes and production projects.</footer>
+  </main></div></div>
+}
+function CodeBlock({title,code}){const [copied,setCopied]=useState(false);return <div className="code"><div className="codehead"><b>{title}</b><button onClick={()=>{navigator.clipboard?.writeText(code);setCopied(true);setTimeout(()=>setCopied(false),1000)}}>{copied?"Copied ✓":"Copy"}</button></div><pre><code>{code}</code></pre><p>Study method: type it manually → run it → change it → deliberately break it → diagnose the error → fix it → commit the result.</p></div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script></body></html>
